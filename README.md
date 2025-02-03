@@ -22,4 +22,4 @@ A responsive personal portfolio webpage showcasing my skills, projects, and cont
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Soham-droid-pixel/MyPortfolioWebsite.git
+   git clone https://github.com/Soham-droid-pixel/MyPortfoliowebsite.git
