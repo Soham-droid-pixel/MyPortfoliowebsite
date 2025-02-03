@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="./style.css">
+    
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h2>SkillFolio</h2>
+        </div>
+        <ul class="nav-links">
+        <li><a href="./index.html"><h2>Home</h2></a></li>
+        <li><a href="./about.html"><h2>About</h2></a></li>
+            
+        <li><a href="./contact.html"><h2>Contact</h2></a></li>
+        </ul>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+<section id="github-projects">
+    <h2>My GitHub Projects</h2>
+    <div id="github-repos"></div>
+</section>
+<footer>
+    <div class="footer-container">
+        <div class="social-media">
+            <!-- Phone Icon -->
+            <a href="tel:+917045470742" class="social-icon" target="_blank">
+                <img src="./icons8-phone-30.png" alt="Phone" />
+            </a>
+            
+                        <!-- GitHub Icon -->
+            <a href="https://github.com/Soham-droid-pixel" class="social-icon" target="_blank">
+                <img src="./icons8-github-24.png" alt="GitHub" />
+            </a>
+            <!-- LinkedIn Icon -->
+            <a href="https://www.linkedin.com/in/soham-kalgutkar-0a4b0428a/" class="social-icon" target="_blank">
+                <img src="./icons8-linkedin-30.png" alt="LinkedIn" />
+            </a>
+            <!-- Kaggle Icon -->
+            <a href="https://www.kaggle.com/sohamkalgutkar" class="social-icon" target="_blank">
+                <img src="./icons8-kaggle-an-online-community-of-data-scientists-and-machine-learners,-owned-by-google-24.png" alt="Kaggle" />
+            </a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2025 Soham Kalgutkar. All rights reserved.</p>
+            <p>Designed with <img src="./icons8-heart-48 (1).png" alt="Heart" width=25px height=25px/> by Soham Kalgutkar</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+async function fetchGitHubRepos() {
+    const username = "soham-droid-pixel"; 
+    const url = `https://api.github.com/users/${username}/repos`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.status}`);
+        }
+        const repos = await response.json();
+        displayRepos(repos);
+    } catch (error) {
+        console.error("Error fetching GitHub repositories:", error);
+    }
+}
+
+function displayRepos(repos) {
+    const repoContainer = document.getElementById("github-repos");
+    repoContainer.innerHTML = ""; 
+
+    repos.forEach(repo => {
+        const repoElement = document.createElement("div");
+        repoElement.classList.add("repo-card");
+        repoElement.innerHTML = `
+            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+            <p>${repo.description || "No description available"}</p>
+        `;
+        repoContainer.appendChild(repoElement);
+    });
+}
+
+// Fetch repositories on page load
+document.addEventListener("DOMContentLoaded", fetchGitHubRepos);
+
+</script>
+<script src="./script.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+</body>
+</html>
