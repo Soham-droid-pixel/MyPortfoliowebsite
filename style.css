@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100%;
@@ -6,13 +7,28 @@ body {
     flex-direction: column;
     justify-content: space-between;
     margin:0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
 }
+html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background:#6B4226;
+    background:#222222;
     padding: 15px 20px;
     color: #FFD93D;
     margin:0;
@@ -65,12 +81,13 @@ body {
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
-    background-color:#A45A3D;
+    background-color:#F18F01;
     flex-grow: 1;
     border: 3px solid #FFD93D;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #FFD93D;
+    border-radius:0;
+    box-shadow: 0 0 15px #462C09;
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    font-weight: bold;
 }
 
 .about-me:hover {
@@ -97,7 +114,7 @@ body {
     width: 330px;
     height: 600px;
     border-radius: 10px;
-    border: 4px solid #FFD93D;
+    border: 4px solid #7F4D06;
     box-shadow: none;
     transition: 0.4s ease-in-out;
 }
@@ -122,18 +139,19 @@ body {
 .text-container h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color:#F5DEB3;
+    color:#222222;
 }
 
 .text-container p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #FFD93D;
+    color: #462C09;
 }
 
 footer {
-    background-color:#D9BF77;
-    color:#A45A3D;
+    background-color:#D57F03;
+    font-weight: bold;
+    color:#222222;
     padding: 20px 0;
     position: relative;
     width: 100%;
@@ -177,12 +195,12 @@ footer {
 #github-projects {
     text-align: center;
     padding: 40px 20px;
-    background-color:#8b4513;
+    background-color:#F18F01;
 }
 
 #github-projects h2 {
     font-size: 2rem;
-    color:#FFD93D;
+    color:#222222;
     margin-bottom: 20px;
 }
 
@@ -220,7 +238,7 @@ footer {
 
 .repo-card a {
     text-decoration: none;
-    color: #8b4513;
+    color: #222222;
     font-weight: bold;
     transition: color 0.3s;
 }
@@ -232,6 +250,7 @@ footer {
 .repo-card p {
     font-size: 0.9rem;
     color: #333;
+    font-weight:450;
 }
 
 .form-group {
@@ -249,7 +268,7 @@ footer {
 .form-group label {
     font-size: 1rem;
     font-weight: bold;
-    color: #FFD93D;
+    color:#222222;
     margin-bottom: 5px; 
     margin-right: 10px;
 }
@@ -299,7 +318,7 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
-    background-color:#A45A3D;
+    background-color:#F18F01;
     flex-grow: 1;
     border: 3px solid #FFD93D;
     border-radius: 0;
@@ -363,12 +382,17 @@ footer {
 
 
 @media (max-width: 768px) {
+    body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    }
+
     .nav-links {
         display: none;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: #6B4226;
+        background:#222222;
         position: absolute;
         top: 60px;
         right: 0;
@@ -463,6 +487,14 @@ footer {
         color:white;
         box-shadow: 0 0 10px white, 0 0 20px white;
         transform: scale(1.2);
+    }
+    @media (hover: none) {
+        .about-container:active,
+        .image-container:active,
+        .text-container:active {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px #D9BF77;
+        }
     }
     
 
